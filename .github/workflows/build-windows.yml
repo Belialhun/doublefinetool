@@ -1,0 +1,32 @@
+name: Build Windows exe
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+
+jobs:
+  build:
+    name: Build on Windows
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install CMake
+      uses: lukka/get-cmake@v3
+      with:
+        cmake-version: '3.27.4'
+
+    - name: Configure with CMake
+      run: cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+    - name: Build with CMake
+      run: cmake --build build --config Release
+
+    - name: Upload executable
+      uses: actions/upload-artifact@v3
+      with:
+        name: doublefinetool-windows-release
+        path: build/doublefinetool.exe

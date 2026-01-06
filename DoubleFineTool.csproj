@@ -5,6 +5,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>DoubleFineTool</AssemblyName>
     <RootNamespace>DoubleFine</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo> <!-- EZ A FONTOS -->
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
   </PropertyGroup>
@@ -19,3 +20,4 @@
   </ItemGroup>
 
 </Project>
+

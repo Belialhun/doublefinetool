@@ -1,4 +1,4 @@
-name: Build with MSBuild
+name: Build DoubleFineTool (.NET 6)
 
 on:
   push:
@@ -10,17 +10,22 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1.1
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '6.0.x'
 
-    - name: Build with MSBuild
-      run: msbuild DoubleFineTool.sln /p:Configuration=Release
+    - name: Restore packages
+      run: dotnet restore DoubleFineTool.csproj
 
-    - name: Upload executable
+    - name: Build
+      run: dotnet build DoubleFineTool.csproj -c Release
+
+    - name: Upload EXE
       uses: actions/upload-artifact@v4
       with:
-        name: doublefinetool-exe
-        path: lib\bin\Release\DoubleFineTool.exe
+        name: DoubleFineTool-Windows
+        path: bin/Release/net6.0/DoubleFineTool.exe

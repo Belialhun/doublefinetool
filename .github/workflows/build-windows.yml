@@ -16,13 +16,13 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '6.0.x'  # vagy 7.x, ha újabb kell
+        dotnet-version: '6.0.x'  # vagy újabb, ha kell
 
     - name: Build project
-      run: dotnet build lib/DoubleFineTool.csproj -c Release
+      run: dotnet build DoubleFineTool.csproj -c Release
 
     - name: Upload executable
       uses: actions/upload-artifact@v4
       with:
         name: doublefinetool-exe
-        path: lib/bin/Release/net6.0/DoubleFineTool.exe
+        path: bin/Release/net6.0/DoubleFineTool.exe

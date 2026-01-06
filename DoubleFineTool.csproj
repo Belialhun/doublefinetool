@@ -5,10 +5,14 @@
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>DoubleFineTool</AssemblyName>
     <RootNamespace>DoubleFine</RootNamespace>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo> <!-- EZ A FONTOS -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="JpmodLib">
@@ -20,4 +24,3 @@
   </ItemGroup>
 
 </Project>
-
